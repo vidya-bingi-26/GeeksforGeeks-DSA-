@@ -1,0 +1,25 @@
+long long pairAndSum(int n, long long arr[]) {
+        // code here]
+        int occur[32]={0};
+        for(int i=0;i<32;i++){
+            for(int j=0;j<n;j++){
+                if(arr[j]&1){
+                    occur[i]++;
+                }
+                arr[j]=arr[j]>>1;
+            }
+        }
+        
+        
+        long long sum=0;
+        for(int i=0;i<32;i++){
+            if(occur[i]>0){
+            long long number=occur[i]-1;
+            long long number1=(number*(number+1))/2;
+            sum+=(number1*(long long )pow(2,i));
+                
+            }
+        }
+        return sum;
+        
+    }
